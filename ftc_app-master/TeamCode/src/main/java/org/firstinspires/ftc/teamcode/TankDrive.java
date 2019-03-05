@@ -33,8 +33,6 @@ public class TankDrive extends OpMode {
         double armPowerCounterClockwise;
         double armPower;
 
-
-
         // check to see if gamepad button pressed
         if (gamepad2.y){
             yPressed = true;
@@ -123,10 +121,13 @@ public class TankDrive extends OpMode {
         }
 
         if(gamepad1.x){
-            robot.claw.setPosition(1.0);
+            robot.claw.setPower(1.0);
         }
         else if(gamepad1.b){
-            robot.claw.setPosition(0);
+            robot.claw.setPower(-1.0);
+        }
+        else{
+            robot.claw.setPower(0);
         }
     }
 

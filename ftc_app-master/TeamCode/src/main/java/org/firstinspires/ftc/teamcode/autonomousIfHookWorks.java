@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous (name = "hookCrater")
+@Autonomous (name = "Hook and Crater")
 
 public class autonomousIfHookWorks extends LinearOpMode{
     private ElapsedTime runtime = new ElapsedTime();
@@ -23,7 +23,7 @@ public class autonomousIfHookWorks extends LinearOpMode{
         runtime.reset();
 
         while(opModeIsActive() && runtime.seconds() < 0.5){
-            robot.claw.setPosition(1.0);
+            robot.claw.setPower(1.0);
             robot.hook.setPower(0);
         }
 
@@ -34,6 +34,8 @@ public class autonomousIfHookWorks extends LinearOpMode{
             robot.frontLeftDrive.setPower(0.5);
             robot.leftDrive.setPower(0.5);
             robot.rightDrive.setPower(0.5);
+            robot.retract();
+            robot.claw.setPower(0);
         }
 
         runtime.reset();
@@ -43,6 +45,7 @@ public class autonomousIfHookWorks extends LinearOpMode{
             robot.leftDrive.setPower(1.0);
             robot.rightDrive.setPower(-1.0);
             robot.frontRightDrive.setPower(-1.0);
+            robot.hook.setPower(0);
         }
 
         runtime.reset();

@@ -7,7 +7,6 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="Tank Drive 2", group="Drive")
 
-
 public class tankDriveTwo extends OpMode {
 
     private ElapsedTime runtime = new ElapsedTime();
@@ -32,8 +31,6 @@ public class tankDriveTwo extends OpMode {
         double armPowerClockWise;
         double armPowerCounterClockwise;
         double armPower;
-
-
 
         // check to see if gamepad button pressed
         if (gamepad2.y){
@@ -110,10 +107,13 @@ public class tankDriveTwo extends OpMode {
         }
 
         if(gamepad1.x){
-            robot.claw.setPosition(1.0);
+            robot.claw.setPower(1.0);
         }
         else if(gamepad1.b){
-            robot.claw.setPosition(0);
+            robot.claw.setPower(-1.0);
+        }
+        else{
+            robot.claw.setPower(0);
         }
     }
 

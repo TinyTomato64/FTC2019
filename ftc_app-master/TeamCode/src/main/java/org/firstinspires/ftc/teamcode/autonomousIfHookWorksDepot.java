@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous (name = "hookDepot")
+@Autonomous (name = "Hook and Depot")
 
 public class autonomousIfHookWorksDepot extends LinearOpMode{
     private ElapsedTime runtime = new ElapsedTime();
@@ -20,7 +20,7 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 1){
-            robot.claw.setPosition(1.0);
+            robot.claw.setPower(1.0);
             robot.hook.setPower(0);
         }
         runtime.reset();
@@ -29,6 +29,8 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
             robot.frontLeftDrive.setPower(0.5);
             robot.rightDrive.setPower(0.5);
             robot.frontRightDrive.setPower(0.5);
+            robot.retract();
+            robot.claw.setPower(0);
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 1){
@@ -37,11 +39,13 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
             robot.rightDrive.setPower(0);
             robot.frontRightDrive.setPower(0);
             robot.arm.setPower(1.0);
+            robot.hook.setPower(0);
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 1){
             robot.frontLeftDrive.setPower(-0.5);
             robot.leftDrive.setPower(-0.5);
+            robot.arm.setPower(0);
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 3){
@@ -49,7 +53,6 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
             robot.frontRightDrive.setPower(-1.0);
             robot.leftDrive.setPower(-1.0);
             robot.rightDrive.setPower(-1.0);
-            robot.arm.setPower(0);
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 2){
