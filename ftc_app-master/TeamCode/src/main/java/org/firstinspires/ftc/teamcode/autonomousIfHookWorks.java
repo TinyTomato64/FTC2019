@@ -32,12 +32,22 @@ public class autonomousIfHookWorks extends LinearOpMode{
 
         runtime.reset();
 
+        while(opModeIsActive() && runtime.seconds() < 2){
+            robot.frontLeftDrive.setPower(0);
+            robot.frontRightDrive.setPower(0);
+            robot.rightDrive.setPower(0);
+            robot.leftDrive.setPower(0);
+            robot.retract();
+        }
+
+        runtime.reset();
+
         while(opModeIsActive() && runtime.seconds() < 1){
             robot.frontLeftDrive.setPower(1.0);
             robot.leftDrive.setPower(1.0);
             robot.rightDrive.setPower(-1.0);
             robot.frontRightDrive.setPower(-1.0);
-            robot.retract();
+            robot.hook.setPower(0);
         }
 
         runtime.reset();
@@ -48,7 +58,6 @@ public class autonomousIfHookWorks extends LinearOpMode{
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
             robot.arm.setPower(0.6);
-            robot.hook.setPower(0);
         }
 
         runtime.reset();
