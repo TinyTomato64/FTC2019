@@ -49,6 +49,7 @@ public class POVdrive extends OpMode {
         if (gamepad1.y) {
             robot.arm.setPower(1);
         }
+        else
         if (gamepad1.a) {
             robot.arm.setPower(-1.0);
         } else {
@@ -65,10 +66,10 @@ public class POVdrive extends OpMode {
         }
 
         if (gamepad1.x){
-            robot.claw.setPosition(0);
+ //           robot.claw.setPosition(0);
         }
         if(gamepad1.b){
-            robot.claw.setPosition(1.0);
+   //         robot.claw.setPosition(1.0);
         }
 
 

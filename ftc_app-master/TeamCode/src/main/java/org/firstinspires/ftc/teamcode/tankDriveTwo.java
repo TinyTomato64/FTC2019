@@ -106,17 +106,7 @@ public class tankDriveTwo extends OpMode {
             robot.hook.setPower(0);
         }
 
-        if(gamepad1.x){
-            robot.claw.setPower(1.0);
-        }
-        else if(gamepad1.b){
-            robot.claw.setPower(-1.0);
-        }
-        else{
-            robot.claw.setPower(0);
-        }
     }
-
 
     //public void stop(){}
 

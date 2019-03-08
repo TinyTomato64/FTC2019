@@ -19,33 +19,31 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
             robot.extend();
         }
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < 1){
-            robot.claw.setPower(1.0);
-            robot.hook.setPower(0);
-        }
-        runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 1.5){
             robot.leftDrive.setPower(0.5);
             robot.frontLeftDrive.setPower(0.5);
             robot.rightDrive.setPower(0.5);
             robot.frontRightDrive.setPower(0.5);
-            robot.retract();
-            robot.claw.setPower(0);
+            robot.hook.setPower(0);
         }
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < 1){
+        while(opModeIsActive() && runtime.seconds() < 2){
             robot.leftDrive.setPower(0);
             robot.frontLeftDrive.setPower(0);
             robot.rightDrive.setPower(0);
             robot.frontRightDrive.setPower(0);
+            robot.retract();
+        }
+        runtime.reset();
+        while(opModeIsActive() && runtime.seconds() < 1){
             robot.arm.setPower(1.0);
-            robot.hook.setPower(0);
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 1){
             robot.frontLeftDrive.setPower(-0.5);
             robot.leftDrive.setPower(-0.5);
             robot.arm.setPower(0);
+            robot.hook.setPower(0);
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 3){
