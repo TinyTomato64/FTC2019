@@ -73,13 +73,13 @@ public class POVdrive extends OpMode {
         }
 
 
-   /*         if (gamepad1.dpad_up) {
+/*            if (gamepad1.dpad_up) {
                 robot.hook.setPower(1.0);
             }
-            if (gamepad1.dpad_down) {
+            else if (gamepad1.dpad_down) {
                 robot.hook.setPower(-1.0);
             }
-            else {robot.hook.setPower(0); */
+            else {robot.hook.setPower(0);}*/
 
 
   /*              telemetry.addData("Status", "Run Time: " + runtime.toString());

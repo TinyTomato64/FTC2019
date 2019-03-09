@@ -14,7 +14,6 @@ public class hardwareMap {
     public DcMotor hand = null;
     public DcMotor hook = null;
 
-    public static final double midServo =  0.5 ;
 
     HardwareMap hwMap = null;
     private ElapsedTime time = new ElapsedTime();
@@ -34,7 +33,7 @@ public class hardwareMap {
         hook = hwMap.get(DcMotor.class, "hook");
 
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
-        frontRightDrive.setDirection(DcMotor.Direction.REVERSE);
+        frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         arm.setDirection(DcMotor.Direction.REVERSE);
         hook.setDirection(DcMotor.Direction.REVERSE);
 
@@ -46,8 +45,8 @@ public class hardwareMap {
         frontLeftDrive.setPower(0);
         frontRightDrive.setPower(0);
 
-        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         frontLeftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         frontRightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -56,11 +55,11 @@ public class hardwareMap {
     }
 
     public void extend(){
-        this.hook.setPower(1.0);
+        this.hook.setPower(-1.0);
     }
 
     public void retract(){
-        this.hook.setPower(-1.0);
+        this.hook.setPower(1.0);
     }
 
 }
