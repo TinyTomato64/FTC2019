@@ -12,11 +12,6 @@ public class tankDriveTwo extends OpMode {
     private ElapsedTime runtime = new ElapsedTime();
     hardwareMap robot = new hardwareMap();
 
-    boolean yPressed = false;
-    boolean xPressed = false;
-    boolean bPressed = false;
-    boolean aPressed = false;
-
     @Override
     public void init() {
         robot.init(hardwareMap);
@@ -32,55 +27,14 @@ public class tankDriveTwo extends OpMode {
         double armPowerCounterClockwise;
         double armPower;
 
-        // check to see if gamepad button pressed
-        if (gamepad2.y){
-            yPressed = true;
-            xPressed = false;
-            bPressed = false;
-            aPressed = false;
-        }
-        else if (gamepad2.x){
-            yPressed = false;
-            xPressed = true;
-            bPressed = false;
-            aPressed = false;
-        }
-        else if (gamepad2.a){
-            yPressed = false;
-            xPressed = false;
-            bPressed = false;
-            aPressed = true;
-        }
-        else if (gamepad2.b){
-            yPressed = false;
-            xPressed = false;
-            bPressed = true;
-            aPressed = false;
-        }
+        robot.pressButton(gamepad2.a, gamepad2.b, gamepad2.x, gamepad2.y);
         leftPower = Range.clip(-gamepad1.left_stick_y, -1.0, 1.0);
         rightPower = Range.clip(-gamepad1.right_stick_y, -1.0, 1.0);
 
-        if (yPressed == true){
-            leftPower = leftPower * 2;
-            rightPower = rightPower * 2;
-        }
-        if (xPressed == true){
-            leftPower = leftPower / 2;
-            rightPower = rightPower / 2;
-        }
-        if (bPressed == true){
-            leftPower = leftPower / 3;
-            rightPower = rightPower / 3;
-        }
-        if(aPressed == true){
-            leftPower = leftPower * 3;
-            rightPower = rightPower * 3;
-
-        }
-        robot.leftDrive.setPower(leftPower);
-        robot.rightDrive.setPower(rightPower);
-        robot.frontLeftDrive.setPower(leftPower);
-        robot.frontRightDrive.setPower(rightPower);
+        robot.leftDrive.setPower(leftPower / robot.mod);
+        robot.rightDrive.setPower(rightPower / robot.mod);
+        robot.frontLeftDrive.setPower(leftPower / robot.mod);
+        robot.frontRightDrive.setPower(rightPower / robot.mod);
 
         armPowerClockWise = Range.clip(gamepad1.left_trigger,0.0, 1.0);
         armPowerCounterClockwise = Range.clip(gamepad1.right_trigger, 0.0, 1.0);
@@ -108,8 +62,10 @@ public class tankDriveTwo extends OpMode {
 
     }
 
+    }
+
     //public void stop(){}
 
-}
+
 
 

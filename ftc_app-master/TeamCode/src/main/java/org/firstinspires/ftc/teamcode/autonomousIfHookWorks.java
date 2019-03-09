@@ -10,17 +10,23 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class autonomousIfHookWorks extends LinearOpMode{
     private ElapsedTime runtime = new ElapsedTime();
     private hardwareMap robot = new hardwareMap();
+    private autonomousFunctions functions = new autonomousFunctions();
     @Override
+
+    //boolean X;
     public void runOpMode() throws InterruptedException{
         robot.init(hardwareMap);
         waitForStart();
         runtime.reset();
+
 
         while(opModeIsActive() && runtime.seconds() < 5){
             robot.extend();
         }
 
         runtime.reset();
+
+
 
         while(opModeIsActive() && runtime.seconds() < 1.5){
             robot.frontRightDrive.setPower(0.5);
@@ -92,6 +98,7 @@ public class autonomousIfHookWorks extends LinearOpMode{
         }
 
         runtime.reset();
+
 
         while(opModeIsActive() && runtime.seconds() < 4.5){
             robot.leftDrive.setPower(0);

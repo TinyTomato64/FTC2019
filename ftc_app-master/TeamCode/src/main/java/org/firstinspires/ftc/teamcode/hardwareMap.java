@@ -13,15 +13,16 @@ public class hardwareMap {
     public DcMotor arm = null;
     public DcMotor hand = null;
     public DcMotor hook = null;
+    public double mod = 1.0;
 
 
     HardwareMap hwMap = null;
     private ElapsedTime time = new ElapsedTime();
 
-    public hardwareMap(){
+    public hardwareMap() {
     }
 
-    public void init(HardwareMap ahwMap){
+    public void init(HardwareMap ahwMap) {
         hwMap = ahwMap;
 
         leftDrive = hwMap.get(DcMotor.class, "left_drive");
@@ -54,12 +55,29 @@ public class hardwareMap {
 
     }
 
-    public void extend(){
+    public void extend() {
         this.hook.setPower(-1.0);
     }
 
-    public void retract(){
+    public void retract() {
         this.hook.setPower(1.0);
     }
 
+    public void pressButton(boolean A, boolean B, boolean X, boolean Y) {
+        if (A) {
+            this.mod = 4.0;
+        }
+        if (B) {
+            this.mod = 3.0;
+        }
+        if (X) {
+            this.mod = 2.0;
+        }
+        if (Y) {
+            this.mod = 1.0;
+        }
+    }
 }
+
+
+
