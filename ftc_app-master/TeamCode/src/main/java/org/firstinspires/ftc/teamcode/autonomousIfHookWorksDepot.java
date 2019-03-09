@@ -15,7 +15,7 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
         waitForStart();
         runtime.reset();
 
-        while(opModeIsActive() && runtime.seconds() < 3){
+        while(opModeIsActive() && runtime.seconds() < 5){
             robot.extend();
         }
         runtime.reset();
@@ -27,7 +27,7 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
             robot.hook.setPower(0);
         }
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < 2){
+        while(opModeIsActive() && runtime.seconds() < 4){
             robot.leftDrive.setPower(0);
             robot.frontLeftDrive.setPower(0);
             robot.rightDrive.setPower(0);

@@ -60,19 +60,19 @@ public class tankDriveTwo extends OpMode {
         leftPower = Range.clip(-gamepad1.left_stick_y, -1.0, 1.0);
         rightPower = Range.clip(-gamepad1.right_stick_y, -1.0, 1.0);
 
-        if (yPressed){
+        if (yPressed == true){
             leftPower = leftPower * 2;
             rightPower = rightPower * 2;
         }
-        if (xPressed){
+        if (xPressed == true){
             leftPower = leftPower / 2;
             rightPower = rightPower / 2;
         }
-        if (bPressed){
+        if (bPressed == true){
             leftPower = leftPower / 3;
             rightPower = rightPower / 3;
         }
-        if(aPressed){
+        if(aPressed == true){
             leftPower = leftPower * 3;
             rightPower = rightPower * 3;
 

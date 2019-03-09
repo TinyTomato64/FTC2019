@@ -33,8 +33,8 @@ public class autonomousIfHookWorks extends LinearOpMode{
         while(opModeIsActive() && runtime.seconds() < 1.5){
             robot.frontLeftDrive.setPower(0.5);
             robot.leftDrive.setPower(0.5);
-            robot.frontRightDrive.setPower(0);
-            robot.rightDrive.setPower(0);
+            robot.rightDrive.setPower(0.5);
+            robot.frontRightDrive.setPower(0.5);
         }
 
         while(opModeIsActive() && runtime.seconds() < 5){
@@ -47,17 +47,17 @@ public class autonomousIfHookWorks extends LinearOpMode{
 
         runtime.reset();
 
-        while(opModeIsActive() && runtime.seconds() < 1){
+        while(opModeIsActive() && runtime.seconds() < 3){
             robot.frontLeftDrive.setPower(1.0);
             robot.leftDrive.setPower(1.0);
-            robot.rightDrive.setPower(-1.0);
-            robot.frontRightDrive.setPower(-1.0);
+            robot.rightDrive.setPower(1.0);
+            robot.frontRightDrive.setPower(1.0);
             robot.hook.setPower(0);
         }
 
         runtime.reset();
 
-        while(opModeIsActive() && runtime.seconds() < 4.5){
+        while(opModeIsActive() && runtime.seconds() < 1){
             robot.frontRightDrive.setPower(0);
             robot.frontLeftDrive.setPower(0);
             robot.rightDrive.setPower(0);
@@ -69,7 +69,42 @@ public class autonomousIfHookWorks extends LinearOpMode{
 
         while(opModeIsActive() && runtime.seconds() < 1){
             robot.arm.setPower(0);
-            robot.hand.setPower(1.0);
+            robot.leftDrive.setPower(0.5);
+            robot.frontLeftDrive.setPower(0.5);
+        }
+
+        runtime.reset();
+
+        while(opModeIsActive() && runtime.seconds() < 3){
+            robot.leftDrive.setPower(1.0);
+            robot.frontLeftDrive.setPower(1.0);
+            robot.frontRightDrive.setPower(1.0);
+            robot.rightDrive.setPower(1.0);
+        }
+
+        runtime.reset();
+
+        while(opModeIsActive() && runtime.seconds() < 1){
+            robot.frontRightDrive.setPower(-1.0);
+            robot.rightDrive.setPower(-1.0);
+            robot.frontLeftDrive.setPower(1.0);
+            robot.leftDrive.setPower(1.0);
+        }
+
+        runtime.reset();
+
+        while(opModeIsActive() && runtime.seconds() < 4.5){
+            robot.leftDrive.setPower(0);
+            robot.frontLeftDrive.setPower(0);
+            robot.frontRightDrive.setPower(0);
+            robot.rightDrive.setPower(0);
+            robot.arm.setPower(0.7);
+        }
+
+        runtime.reset();
+
+        while(opModeIsActive() && runtime.seconds() > 0){
+            robot.arm.setPower(0);
         }
 
     }
