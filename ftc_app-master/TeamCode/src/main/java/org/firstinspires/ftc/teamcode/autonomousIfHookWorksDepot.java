@@ -20,18 +20,12 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 1.5){
-            robot.leftDrive.setPower(0.5);
-            robot.frontLeftDrive.setPower(0.5);
-            robot.rightDrive.setPower(0.5);
-            robot.frontRightDrive.setPower(0.5);
+            robot.autobots(0.5, 0.5, 1.0);
             robot.hook.setPower(0);
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 4){
-            robot.leftDrive.setPower(0);
-            robot.frontLeftDrive.setPower(0);
-            robot.rightDrive.setPower(0);
-            robot.frontRightDrive.setPower(0);
+            robot.autobots(0, 0, 1.0);
             robot.retract();
         }
         runtime.reset();
@@ -40,24 +34,17 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 1){
-            robot.frontLeftDrive.setPower(-0.5);
-            robot.leftDrive.setPower(-0.5);
+            robot.autobots(0.5, 0, 1.0);
             robot.arm.setPower(0);
             robot.hook.setPower(0);
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 3){
-            robot.frontLeftDrive.setPower(-1.0);
-            robot.frontRightDrive.setPower(-1.0);
-            robot.leftDrive.setPower(-1.0);
-            robot.rightDrive.setPower(-1.0);
+            robot.autobots(-1.0, -1.0, 1.0);
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 2){
-            robot.frontRightDrive.setPower(0);
-            robot.frontLeftDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            robot.rightDrive.setPower(0);
+            robot.autobots(0, 0, 1.0);
             robot.arm.setPower(0.5);
         }
         runtime.reset();

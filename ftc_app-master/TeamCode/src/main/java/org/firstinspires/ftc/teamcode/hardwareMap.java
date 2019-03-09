@@ -77,11 +77,36 @@ public class hardwareMap {
             this.mod = 1.0;
         }
     }
+    public void buttonPress(boolean A, boolean B, boolean X, boolean Y, boolean S){
+        if (A){
+            this.mod -= 0.1;
+        }
+        if (B){
+            this.mod -= 0.5;
+        }
+        if(X){
+            this.mod += 0.5;
+        }
+        if(Y){
+            this.mod += 0.1;
+        }
+        if(S){
+            this.mod = 1.0;
+        }
+        this.mod = Math.min(1.0, this.mod);
+        this.mod = Math.max(0.1, this.mod);
+    }
     public void autobots(double leftPower, double rightPower, double mod){
         this.leftDrive.setPower(leftPower / mod);
         this.frontLeftDrive.setPower(leftPower / mod);
         this.rightDrive.setPower(rightPower / mod);
         this.frontRightDrive.setPower(rightPower / mod);
+    }
+    public void decepticon(double leftPower, double rightPower, double mod){
+        this.leftDrive.setPower(leftPower * mod);
+        this.frontLeftDrive.setPower(leftPower * mod);
+        this.rightDrive.setPower(rightPower * mod);
+        this.frontRightDrive.setPower(rightPower * mod);
     }
 }
 

@@ -13,11 +13,6 @@ public class TankDrive extends OpMode {
     private ElapsedTime runtime = new ElapsedTime();
     hardwareMap robot = new hardwareMap();
 
-    boolean yPressed = false;
-    boolean xPressed = false;
-    boolean bPressed = false;
-    boolean aPressed = false;
-
     @Override
     public void init() {
         robot.init(hardwareMap);
@@ -33,69 +28,10 @@ public class TankDrive extends OpMode {
         double armPowerCounterClockwise;
         double armPower;
 
-        // check to see if gamepad button pressed
-        if (gamepad2.y){
-            yPressed = true;
-            xPressed = false;
-            bPressed = false;
-            aPressed = false;
-        }
-        else if (gamepad2.x){
-            yPressed = false;
-            xPressed = true;
-            bPressed = false;
-            aPressed = false;
-        }
-        else if (gamepad2.a){
-            yPressed = false;
-            xPressed = false;
-            bPressed = false;
-            aPressed = true;
-        }
-        else if (gamepad2.b){
-            yPressed = false;
-            xPressed = false;
-            bPressed = true;
-            aPressed = false;
-        }
-
-        if (yPressed == true){
-                leftPower = Range.clip(-gamepad1.left_stick_y, -1.0, 1.0);
-                rightPower = Range.clip(-gamepad1.right_stick_y, -1.0, 1.0);
-
-                robot.leftDrive.setPower(leftPower);
-                robot.rightDrive.setPower(rightPower);
-                robot.frontLeftDrive.setPower(leftPower);
-                robot.frontRightDrive.setPower(rightPower);
-            }
-            if (xPressed == true){
-                leftPower = Range.clip(-gamepad1.left_stick_y, -0.75, 0.75);
-                rightPower = Range.clip(-gamepad1.right_stick_y, -0.75, 0.75);
-
-                robot.leftDrive.setPower(leftPower);
-                robot.rightDrive.setPower(rightPower);
-                robot.frontLeftDrive.setPower(leftPower);
-                robot.frontRightDrive.setPower(rightPower);
-        }
-
-            if (bPressed == true){
-                leftPower = Range.clip(-gamepad1.left_stick_y, -0.5, 0.5);
-                rightPower = Range.clip(-gamepad1.right_stick_y, -0.5, 0.5);
-
-                robot.leftDrive.setPower(leftPower);
-                robot.frontLeftDrive.setPower(leftPower);
-                robot.rightDrive.setPower(rightPower);
-                robot.frontRightDrive.setPower(rightPower);
-        }
-            if(aPressed == true){
-                leftPower = Range.clip(-gamepad1.left_stick_y, -0.25, 0.25);
-                rightPower = Range.clip(-gamepad1.right_stick_y, -0.25, 0.25);
-
-                robot.frontRightDrive.setPower(rightPower);
-                robot.rightDrive.setPower(rightPower);
-                robot.frontLeftDrive.setPower(leftPower);
-                robot.leftDrive.setPower(leftPower);
-        }
+        leftPower = Range.clip(gamepad1.left_stick_y, -1.0, 1.0);
+        rightPower = Range.clip(gamepad1.right_stick_y, -1.0, 1.0);
+        robot.buttonPress(gamepad2.a, gamepad2.b, gamepad2.x, gamepad2.y, gamepad2.start);
+        robot.decepticon(leftPower, rightPower, robot.mod);
 
         armPowerClockWise = Range.clip(gamepad1.left_trigger,0.0, 1.0);
         armPowerCounterClockwise = Range.clip(gamepad1.right_trigger, 0.0, 1.0);

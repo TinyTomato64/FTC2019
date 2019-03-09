@@ -15,8 +15,6 @@ public class autonomousIfHookWorks extends LinearOpMode{
 
     // Step Variables
     boolean runCrater = true;
-    double rightPower;
-    double leftPower;
 
 
     public void runOpMode() throws InterruptedException{
