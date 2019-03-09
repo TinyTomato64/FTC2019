@@ -21,6 +21,7 @@ public class tankDriveTwo extends OpMode {
 
     @Override
     public void loop() {
+
         double leftPower;
         double rightPower;
         double armPowerClockWise;
@@ -31,12 +32,9 @@ public class tankDriveTwo extends OpMode {
         leftPower = Range.clip(-gamepad1.left_stick_y, -1.0, 1.0);
         rightPower = Range.clip(-gamepad1.right_stick_y, -1.0, 1.0);
 
-        robot.leftDrive.setPower(leftPower / robot.mod);
-        robot.rightDrive.setPower(rightPower / robot.mod);
-        robot.frontLeftDrive.setPower(leftPower / robot.mod);
-        robot.frontRightDrive.setPower(rightPower / robot.mod);
+        robot.autobots(leftPower, rightPower, robot.mod);
 
-        armPowerClockWise = Range.clip(gamepad1.left_trigger,0.0, 1.0);
+        armPowerClockWise = Range.clip(gamepad1.left_trigger, 0.0, 1.0);
         armPowerCounterClockwise = Range.clip(gamepad1.right_trigger, 0.0, 1.0);
         armPower = Range.clip(armPowerClockWise - armPowerCounterClockwise, -1.0, 1.0);
 
@@ -44,8 +42,7 @@ public class tankDriveTwo extends OpMode {
 
         if (gamepad1.left_bumper) {
             robot.hand.setPower(-1.0);
-        }
-        else if (gamepad1.right_bumper) {
+        } else if (gamepad1.right_bumper) {
             robot.hand.setPower(1.0);
         } else {
             robot.hand.setPower(0);
@@ -53,8 +50,7 @@ public class tankDriveTwo extends OpMode {
 
         if (gamepad1.dpad_up) {
             robot.hook.setPower(1.0);
-        }
-        else if (gamepad1.dpad_down) {
+        } else if (gamepad1.dpad_down) {
             robot.hook.setPower(-1.0);
         } else {
             robot.hook.setPower(0);
@@ -62,9 +58,8 @@ public class tankDriveTwo extends OpMode {
 
     }
 
-    }
+}
 
-    //public void stop(){}
 
 
 

@@ -77,6 +77,12 @@ public class hardwareMap {
             this.mod = 1.0;
         }
     }
+    public void autobots(double leftPower, double rightPower, double mod){
+        this.leftDrive.setPower(leftPower / mod);
+        this.frontLeftDrive.setPower(leftPower / mod);
+        this.rightDrive.setPower(rightPower / mod);
+        this.frontRightDrive.setPower(rightPower / mod);
+    }
 }
 
 

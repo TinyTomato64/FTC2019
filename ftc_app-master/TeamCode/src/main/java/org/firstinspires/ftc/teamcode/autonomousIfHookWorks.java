@@ -11,9 +11,14 @@ public class autonomousIfHookWorks extends LinearOpMode{
     private ElapsedTime runtime = new ElapsedTime();
     private hardwareMap robot = new hardwareMap();
     private autonomousFunctions functions = new autonomousFunctions();
-    @Override
 
-    //boolean X;
+
+    // Step Variables
+    boolean runCrater = true;
+    double rightPower;
+    double leftPower;
+
+
     public void runOpMode() throws InterruptedException{
         robot.init(hardwareMap);
         waitForStart();
@@ -26,48 +31,33 @@ public class autonomousIfHookWorks extends LinearOpMode{
 
         runtime.reset();
 
-
-
         while(opModeIsActive() && runtime.seconds() < 1.5){
-            robot.frontRightDrive.setPower(0.5);
-            robot.rightDrive.setPower(0.5);
+            robot.autobots(0, 0.5, 1.0);
             robot.hook.setPower(0);
         }
 
         runtime.reset();
 
         while(opModeIsActive() && runtime.seconds() < 1.5){
-            robot.frontLeftDrive.setPower(0.5);
-            robot.leftDrive.setPower(0.5);
-            robot.rightDrive.setPower(0.5);
-            robot.frontRightDrive.setPower(0.5);
+            robot.autobots(1.0, 1.0, 1.0);
         }
 
         while(opModeIsActive() && runtime.seconds() < 5){
-            robot.frontLeftDrive.setPower(0);
-            robot.frontRightDrive.setPower(0);
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
+            robot.autobots(0, 0, 1.0);
             robot.retract();
         }
 
         runtime.reset();
 
         while(opModeIsActive() && runtime.seconds() < 3){
-            robot.frontLeftDrive.setPower(1.0);
-            robot.leftDrive.setPower(1.0);
-            robot.rightDrive.setPower(1.0);
-            robot.frontRightDrive.setPower(1.0);
+            robot.autobots(1.0, 1.0, 1.0);
             robot.hook.setPower(0);
         }
 
         runtime.reset();
 
         while(opModeIsActive() && runtime.seconds() < 1){
-            robot.frontRightDrive.setPower(0);
-            robot.frontLeftDrive.setPower(0);
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
+            robot.autobots(0, 0, 1.0);
             robot.arm.setPower(1.0);
         }
 
@@ -75,37 +65,25 @@ public class autonomousIfHookWorks extends LinearOpMode{
 
         while(opModeIsActive() && runtime.seconds() < 1){
             robot.arm.setPower(0);
-            robot.leftDrive.setPower(0.5);
-            robot.frontLeftDrive.setPower(0.5);
+            robot.autobots(0.5, 0, 1.0);
         }
 
         runtime.reset();
 
         while(opModeIsActive() && runtime.seconds() < 3){
-            robot.leftDrive.setPower(1.0);
-            robot.frontLeftDrive.setPower(1.0);
-            robot.frontRightDrive.setPower(1.0);
-            robot.rightDrive.setPower(1.0);
+            robot.autobots(1.0, 1.0, 1.0);
         }
 
         runtime.reset();
 
         while(opModeIsActive() && runtime.seconds() < 1){
-            robot.frontRightDrive.setPower(-1.0);
-            robot.rightDrive.setPower(-1.0);
-            robot.frontLeftDrive.setPower(1.0);
-            robot.leftDrive.setPower(1.0);
+            robot.autobots(1.0, -1.0, 1.0);
         }
 
         runtime.reset();
 
-
-        while(opModeIsActive() && runtime.seconds() < 4.5){
-            robot.leftDrive.setPower(0);
-            robot.frontLeftDrive.setPower(0);
-            robot.frontRightDrive.setPower(0);
-            robot.rightDrive.setPower(0);
-            robot.arm.setPower(0.7);
+        while(runCrater){
+            runCrater = functions.moveCrater(robot,opModeIsActive(),runtime);
         }
 
         runtime.reset();
