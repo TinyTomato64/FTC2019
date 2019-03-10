@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -7,7 +8,7 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="Tank Drive", group="Drive")
 
-
+@Disabled
 public class TankDrive extends OpMode {
 
     private ElapsedTime runtime = new ElapsedTime();
@@ -30,8 +31,8 @@ public class TankDrive extends OpMode {
 
         leftPower = Range.clip(gamepad1.left_stick_y, -1.0, 1.0);
         rightPower = Range.clip(gamepad1.right_stick_y, -1.0, 1.0);
-        robot.buttonPress(gamepad2.a, gamepad2.b, gamepad2.x, gamepad2.y, gamepad2.start);
-        robot.decepticon(leftPower, rightPower, robot.mod);
+        /*robot.buttonPress(gamepad2.a, gamepad2.b, gamepad2.x, gamepad2.y, gamepad2.start);
+        robot.decepticon(leftPower, rightPower, robot.mod);*/
 
         armPowerClockWise = Range.clip(gamepad1.left_trigger,0.0, 1.0);
         armPowerCounterClockwise = Range.clip(gamepad1.right_trigger, 0.0, 1.0);

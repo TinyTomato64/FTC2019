@@ -62,8 +62,27 @@ public class hardwareMap {
     public void retract() {
         this.hook.setPower(1.0);
     }
+    public void leftRight(boolean L, boolean R, boolean S){
+        if(L){
+            this.mod += 0.1;
+        }
+        if(R){
+            this.mod -= 0.1;
+        }
+        if(S){
+            this.mod = 1.0;
+        }
+        this.mod = Math.min(1.0, this.mod);
+        this.mod = Math.max(0.1, this.mod);
+    }
+    public void autobots(double leftPower, double rightPower, double mod){
+        this.leftDrive.setPower(leftPower / mod);
+        this.frontLeftDrive.setPower(leftPower / mod);
+        this.rightDrive.setPower(rightPower / mod);
+        this.frontRightDrive.setPower(rightPower / mod);
+    }
 
-    public void pressButton(boolean A, boolean B, boolean X, boolean Y) {
+  /*  public void pressButton(boolean A, boolean B, boolean X, boolean Y) {
         if (A) {
             this.mod = 4.0;
         }
@@ -96,18 +115,14 @@ public class hardwareMap {
         this.mod = Math.min(1.0, this.mod);
         this.mod = Math.max(0.1, this.mod);
     }
-    public void autobots(double leftPower, double rightPower, double mod){
-        this.leftDrive.setPower(leftPower / mod);
-        this.frontLeftDrive.setPower(leftPower / mod);
-        this.rightDrive.setPower(rightPower / mod);
-        this.frontRightDrive.setPower(rightPower / mod);
-    }
+
+
     public void decepticon(double leftPower, double rightPower, double mod){
         this.leftDrive.setPower(leftPower * mod);
         this.frontLeftDrive.setPower(leftPower * mod);
         this.rightDrive.setPower(rightPower * mod);
         this.frontRightDrive.setPower(rightPower * mod);
-    }
+    }*/
 }
 
 

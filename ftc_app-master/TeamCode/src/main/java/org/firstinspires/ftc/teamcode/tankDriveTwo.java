@@ -1,11 +1,14 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="Tank Drive 2", group="Drive")
+
+@Disabled
 
 public class tankDriveTwo extends OpMode {
 
@@ -28,7 +31,7 @@ public class tankDriveTwo extends OpMode {
         double armPowerCounterClockwise;
         double armPower;
 
-        robot.pressButton(gamepad2.a, gamepad2.b, gamepad2.x, gamepad2.y);
+       // robot.pressButton(gamepad2.a, gamepad2.b, gamepad2.x, gamepad2.y);
         leftPower = Range.clip(-gamepad1.left_stick_y, -1.0, 1.0);
         rightPower = Range.clip(-gamepad1.right_stick_y, -1.0, 1.0);
 
