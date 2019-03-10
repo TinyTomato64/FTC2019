@@ -15,13 +15,21 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
         waitForStart();
         runtime.reset();
 
-        while(opModeIsActive() && runtime.seconds() < 4){
+        while(opModeIsActive() && runtime.seconds() < 3.9){
             robot.extend();
         }
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < 1.5){
+        while(opModeIsActive() && runtime.seconds() < 0.2){
+            robot.autobots(0.5, 0, -1.0);
+        }
+        runtime.reset();
+        while(opModeIsActive() && runtime.seconds() < 1.7){
             robot.autobots(0.6, 0.6, -1.0);
             robot.hook.setPower(0);
+        }
+        runtime.reset();
+        while(opModeIsActive() && runtime.seconds() < 0.3){
+            robot.autobots(0.5, 0, -1.0);
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 4){
@@ -33,19 +41,27 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
             robot.arm.setPower(1.0);
         }
         runtime.reset();
+        while(opModeIsActive() && runtime.seconds() < 0.1){
+            robot.autobots(1.0, 1.0, -1.0);
+        }
+        runtime.reset();
+        while(opModeIsActive() && runtime.seconds() < 0.1){
+            robot.autobots(1.0, 1.0, 1.0);
+        }
+        runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 1){
-            robot.autobots(0.5, 0, -1.0);
+            robot.autobots(0, 0.5, 1.0);
             robot.arm.setPower(0);
             robot.hook.setPower(0);
         }
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < 3){
+        while(opModeIsActive() && runtime.seconds() < 2.5){
             robot.autobots(-1.0, -1.0, -1.0);
         }
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < 2){
+        while(opModeIsActive() && runtime.seconds() < 3){
             robot.autobots(0, 0, -1.0);
-            robot.arm.setPower(0.5);
+            robot.arm.setPower(1.0);
         }
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < 2){
