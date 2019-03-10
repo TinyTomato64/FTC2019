@@ -55,7 +55,7 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
             robot.hook.setPower(0);
         }
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < 2.5){
+        while(opModeIsActive() && runtime.seconds() < 2){
             robot.autobots(-1.0, -1.0, -1.0);
         }
         runtime.reset();
