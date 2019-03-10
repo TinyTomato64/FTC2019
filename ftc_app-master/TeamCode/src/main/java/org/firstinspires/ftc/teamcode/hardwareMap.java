@@ -13,7 +13,7 @@ public class hardwareMap {
     public DcMotor arm = null;
     public DcMotor hand = null;
     public DcMotor hook = null;
-    public double mod = 1.0;
+    public double mod = 0.75;
 
 
     HardwareMap hwMap = null;
@@ -33,8 +33,8 @@ public class hardwareMap {
         hand = hwMap.get(DcMotor.class, "hand");
         hook = hwMap.get(DcMotor.class, "hook");
 
-        rightDrive.setDirection(DcMotor.Direction.REVERSE);
-        frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
+        frontRightDrive.setDirection(DcMotor.Direction.REVERSE);
+        leftDrive.setDirection(DcMotor.Direction.REVERSE);
         arm.setDirection(DcMotor.Direction.REVERSE);
         hook.setDirection(DcMotor.Direction.REVERSE);
 
@@ -70,7 +70,7 @@ public class hardwareMap {
             this.mod -= 0.1;
         }
         if(S){
-            this.mod = 1.0;
+            this.mod = 0.75;
         }
         this.mod = Math.min(1.0, this.mod);
         this.mod = Math.max(0.1, this.mod);

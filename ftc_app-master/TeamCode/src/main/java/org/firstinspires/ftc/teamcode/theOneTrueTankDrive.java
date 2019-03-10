@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name = "New Tank Drive")
 
-public abstract class theOneTrueTankDrive extends OpMode {
+public class theOneTrueTankDrive extends OpMode {
     private ElapsedTime runtime = new ElapsedTime();
     hardwareMap robot = new hardwareMap();
 
