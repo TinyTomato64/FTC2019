@@ -32,7 +32,7 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
             robot.autobots(0.5, 0, -1.0);
         }
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < 4){
+        while(opModeIsActive() && runtime.seconds() < 3.2){
             robot.autobots(0, 0, -1.0);
             robot.retract();
         }
@@ -49,7 +49,7 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
             robot.autobots(1.0, 1.0, 1.0);
         }
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < 1){
+        while(opModeIsActive() && runtime.seconds() < 0.7){
             robot.autobots(0, 0.5, 1.0);
             robot.arm.setPower(0);
             robot.hook.setPower(0);
@@ -59,12 +59,12 @@ public class autonomousIfHookWorksDepot extends LinearOpMode{
             robot.autobots(-1.0, -1.0, -1.0);
         }
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < 3){
+        while(opModeIsActive() && runtime.seconds() < 2){
             robot.autobots(0, 0, -1.0);
             robot.arm.setPower(1.0);
         }
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < 2){
+        while(opModeIsActive() && runtime.seconds() > 0){
             robot.arm.setPower(0);
         }
     }
