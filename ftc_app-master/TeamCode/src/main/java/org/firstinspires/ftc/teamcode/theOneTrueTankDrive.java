@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-@TeleOp(name = "~ Tank Drive")
+@TeleOp(name = "New Tank Drive")
 
 public abstract class theOneTrueTankDrive extends OpMode {
     private ElapsedTime runtime = new ElapsedTime();
