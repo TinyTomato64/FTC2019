@@ -58,6 +58,10 @@ public class TankDrive extends OpMode {
             robot.hook.setPower(0);
         }
 
+        // Telemetry
+        telemetry.addData("Power Mod: ", robot.mod);
+        telemetry.update();
+
     }
 
 
